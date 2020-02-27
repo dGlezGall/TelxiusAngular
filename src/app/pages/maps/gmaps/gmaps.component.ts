@@ -1,21 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { JsonUser } from '../../../models/JsonUser';
+import { JsonUserService } from '../../../services/users.service';
 
 @Component({
-  selector: 'ngx-gmaps',
-  styleUrls: ['./gmaps.component.scss'],
-  template: `
-    <nb-card>
-      <nb-card-header>Google Maps</nb-card-header>
-      <nb-card-body>
-        <agm-map [latitude]="lat" [longitude]="lng">
-          <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-        </agm-map>
-      </nb-card-body>
-    </nb-card>
-  `,
+    selector: 'ngx-gmaps',
+    styleUrls: ['./gmaps.component.scss'],
+    templateUrl: './gmaps.component.html'
 })
-export class GmapsComponent {
+export class GmapsComponent implements OnInit {
 
-  lat = 51.678418;
-  lng = 7.809007;
+    lat = 51.678418;
+    lng = 7.809007;
+
+    users: JsonUser[] = [];
+
+    constructor(public jsonUserService: JsonUserService) {
+    }
+
+    ngOnInit(): void {
+        this.jsonUserService.getUsers()
+            .subscribe(
+                users => {
+                    this.users = users;
+                },
+                err => console.error(err)
+            )
+        while (true) {
+            break;
+        }
+    }
+
+    randomInt(min: number, max: number) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 }

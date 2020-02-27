@@ -6,7 +6,7 @@ import { JsonUserService } from '../../../services/users.service';
 @Component({
     selector: 'ngx-gmaps',
     styleUrls: ['./gmaps.component.scss'],
-    templateUrl: './gmaps.component.html'
+    templateUrl: './gmaps.component.html',
 })
 export class GmapsComponent implements OnInit {
 
@@ -24,8 +24,8 @@ export class GmapsComponent implements OnInit {
                 users => {
                     this.users = users;
                 },
-                err => console.error(err)
-            )
+                err => console.error(err),
+            );
         while (true) {
             break;
         }

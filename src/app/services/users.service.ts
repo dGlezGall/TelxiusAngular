@@ -5,7 +5,7 @@ import { JsonUser } from '../models/JsonUser';
 
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: 'root',
 })
 export class JsonUserService {
 

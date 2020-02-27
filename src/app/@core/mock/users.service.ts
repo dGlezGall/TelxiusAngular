@@ -8,7 +8,7 @@ export class UserService extends UserData {
     private time: Date = new Date;
 
     private users = {
-        dario: { name: 'Dario Gonzalez', picture: 'assets/images/cover2.jpg' },
+        dario: { name: 'Dario Gonzalez', picture: 'assets/images/dario.jpg' },
     };
     private types = {
         mobile: 'mobile',

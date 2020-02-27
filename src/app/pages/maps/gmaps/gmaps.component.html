@@ -1,8 +1,16 @@
 <nb-card>
     <nb-card-header>Google Maps</nb-card-header>
     <nb-card-body>
-        <agm-map [latitude]="lat" [longitude]="lng">
-            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        <agm-map [latitude]="location.latitude" [longitude]="location.longitude">
+            <!-- (mapClick)="addMarker($event.coords.lat, $event.coords.lng)"> -->
+            <agm-marker *ngFor="let marker of location.markers" [latitude]="marker.lat" [longitude]="marker.lng"
+                (markerClick)="selectMarker($event)" [markerDraggable]="true" (dragEnd)="markerDragEnd($event.coords)">
+            </agm-marker>
         </agm-map>
     </nb-card-body>
+</nb-card>
+<nb-card>
+    <button nbButton status="info" (click)="addUsersMarker()">
+        Agregar localizaci&oacute;n de un usuario
+    </button>
 </nb-card>

@@ -26,10 +26,10 @@ export class GmapsComponent implements OnInit {
         this.location = {
             latitude: 10,
             longitude: 10,
-            mapType: "satelite",
+            mapType: 'satelite',
             zoom: 5,
             markers: [],
-        }
+        };
 
         this.jsonUserService.getUsers()
             .subscribe(
@@ -44,20 +44,20 @@ export class GmapsComponent implements OnInit {
     addMarker(lat: number, lng: number) {
         this.location.markers.push({
             lat,
-            lng
-        })
+            lng,
+        });
     }
 
     selectMarker(event: any) {
         this.selectedMarker = {
             lat: event.latitude,
-            lng: event.longitude
-        }
+            lng: event.longitude,
+        };
     }
 
     markerDragEnd(coords: any) {
-        this.location.latitude = coords.latitude
-        this.location.longitude = coords.longitude
+        this.location.latitude = coords.latitude;
+        this.location.longitude = coords.longitude;
     }
 
     randomInt(min: number, max: number) {

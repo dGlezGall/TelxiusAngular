@@ -20,7 +20,7 @@ import { MapsRoutingModule, routedComponents } from './maps-routing.module';
         NgxEchartsModule,
         NbCardModule,
         AgmDirectionModule,
-        NbButtonModule
+        NbButtonModule,
     ],
     exports: [],
     declarations: [
